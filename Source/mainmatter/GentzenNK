@@ -1,0 +1,107 @@
+\calculusName{Natural Deduction}
+\calculusAcronym{\NJ}
+\calculusLogic{Classical Logic}
+\calculusLogicOrder{First-Order}
+\calculusType{Natural Deduction}
+\calculusYear{1935}
+\calculusAuthor{Gerhard Karl Erich Gentzen, Dag Prawitz}
+
+\entryTitle{Classical Natural Deduction \NK}
+\entryAuthor{Valeria de PaivaCreate}
+
+\maketitle
+
+\begin{entry}{GentzenNJ}
+
+\newcommand{\A}{\mathfrak{A}}
+\newcommand{\B}{\mathfrak{B}}
+\newcommand{\C}{\mathfrak{C}}
+\newcommand{\DD}{\mathfrak{D}}
+\newcommand{\F}{\mathfrak{F}}
+\newcommand{\x}{\mathfrak{x}}
+\newcommand{\ma}{\mathfrak{a}}
+
+\newcommand{\implies}{\supset}
+\newcommand{\bottom}{\curlywedge}
+
+\begin{calculus}
+
+\[
+\quad
+\infer[UE]{\A \& \B}{\A & \B} 
+\qquad
+\infer[UB]{\A}{\A \& \B}
+\qquad
+\infer[UB]{\B}{\A \& \B} 
+\]
+
+\[
+\qquad
+\infer[OE]{\A \vee \B}{\A}
+\qquad
+\infer[OE]{\A \vee \B}{\B}
+\qquad
+\infer[OB]{\C}{\A \vee \B & 
+               \infer*{\C}{[\A]} &
+               \infer*{\C}{[\B]}}
+\]
+
+\[
+\quad
+\infer[AE]{\forall \x \F \x}{\F \ma}
+\qquad
+\infer[AB]{\F \ma}{\forall \x \F \x}
+\qquad
+\infer[EE]{\exists \x \F \x}{\F \ma}
+\qquad
+\infer[EB]{\C}{\exists \x \F \x & \infer*{\C}{[\F \ma]}}
+\]
+
+\[
+\quad
+\infer[FE]{\A \implies \B}{\infer*{B}{[A]}}
+\qquad
+\infer[FB]{\B}{\A & \A \implies \B}
+\qquad
+\infer[NE]{\neg \A}{\infer*{\bottom}{[\A]}}
+\qquad
+\infer[NB]{\bottom}{\A & \neg \A}
+\qquad
+\infer{\DD}{\bottom}
+\]
+
+The eigenvariable $\ma$ of an $AE$ must not occur in the formula 
+designated in the schema by $\forall \x \F \x$; 
+nor in any assumption formula upon which that formula depends. 
+The eigenvariable $\ma$ of an $EB$ must not occur in the formula 
+designated in the schema by $\exists \x \F \x$; 
+nor in any assumption formula upon which that formula depends, 
+with the exception of the assumption formulae designated by $\F \aa$.
+
+\end{calculus}
+
+\begin{clarifications}
+The  rules are those originally given by Gentzen~\cite{Gentzen1935}, but we use the notation in Prawitz book.
+\end{clarifications}
+
+
+\begin{history}
+Gentzen introduced this calculus for classical Natural Deduction, but could not prove the main result he wanted for it,
+normalization of its proofs. Thirsty years later Prawitz managed to show that normalization holds for this calculus 
+in \cite{prawitz1965}.
+
+\end{history}
+
+\newcommand{\LHJ}{\ensuremath{\mathbf{LHJ}}\xspace}
+
+\begin{technicalities}
+In \cite{Gentzen1935}, completeness of \NK is proven by showing how to translate proofs in the Hilbert-style calculus \LHJ 
+\irefmissing{ToDo} to \NK-proofs, and soundness is proven by showing how to translate \NK-proofs to
+$\mathbf{LK}$-proofs \iref{GentzenLJ}.
+\end{technicalities}
+
+
+\end{entry}
+
+    
+
